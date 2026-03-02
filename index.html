@@ -4,63 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
+    <title>Andy's Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+    <header class="app-header">
         <div class="header-left">
-            <button class="hamburger-menu" aria-label="Menu">
+            <button class="hamburger-menu" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-        <div class="header-center">
-            <a href="index.html" class="home-button" aria-label="Home" title="Home">
-                <img src="transparent_logo.png" alt="Home Logo" class="logo">
-            </a>
-        </div>
-        <nav class="header-right">
 
-            <a href="#" class="nav-item">About</a>
-            <a href="#" class="nav-item">Contact</a>
-        </nav>
+        <div class="header-center">
+            <a class="home-link" href="index.html" aria-label="Home" title="Home">
+                <img src="transparent_logo.png" alt="Andy's Logo" class="logo">
+            </a>
+            <h1 class="brand-name">Andy</h1>
+        </div>
+
+        <div class="header-right">
+            <!-- Example Right-Hand Icons (Search, Bag, User) -->
+            <button class="icon-btn search-btn" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button class="icon-btn bag-btn" aria-label="Cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+            </button>
+            <button class="icon-btn user-btn" aria-label="Account">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <nav class="nav-menu">
+    <nav class="side-menu">
         <ul>
-            <li><a href="#">About</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About Andy</a></li>
+            <li><a href="#">Health Tips</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <main>
-        <h1>I'm Andy</h1>
-        <p>With a strong foundation in visual storytelling as a professional Graphic Designer, I bring a unique
-            aesthetic perspective to the world of web development. After years of mastering Photoshop and Lightroom to
-            build high-impact creative projects, I am now translating those design principles into clean, functional
-            code.
-            Currently, I am focused on building modern, responsive web experiences using HTML, CSS, and JavaScript. I am
-            passionate about integrating AI tools to streamline development and exploring the intersection of design,
-            code, and creativity. Always learning, currently expanding my portfolio via GitHub and Firebase.</p>
+    <main class="page-content">
+        <!-- Leave this empty for you to write your paragraph -->
     </main>
 
     <script>
-        const hamburger = document.querySelector(".hamburger-menu");
-        const navMenu = document.querySelector(".nav-menu");
+        const hamburgerBtn = document.querySelector('.hamburger-menu');
+        const sideMenu = document.querySelector('.side-menu');
 
-        // This "listens" for your click to toggle the menu open or closed
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
+        // Toggle the side menu and hamburger animation
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            sideMenu.classList.toggle('active');
         });
 
-        // Optional: Close menu when a link is clicked
-        document.querySelectorAll(".nav-menu a").forEach(link => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("active");
-            });
+        // Close menu if user clicks outside of it
+        document.addEventListener('click', (event) => {
+            if (!sideMenu.contains(event.target) && !hamburgerBtn.contains(event.target) && sideMenu.classList.contains('active')) {
+                hamburgerBtn.classList.remove('active');
+                sideMenu.classList.remove('active');
+            }
         });
     </script>
 </body>

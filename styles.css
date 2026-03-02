@@ -1,150 +1,185 @@
-:root {
-  --bg-color: #fdfbf7;
-  /* Light warm background */
-  --header-bg-color: #ffffff;
-  /* Lighter header */
-  --text-color: #333333;
-  --accent-color: #555555;
-  --spacing-unit: 1rem;
+/* Reset & Basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+    --text-color: #1a1a1a;
+    --bg-color: #fcf9f5;
+    /* very subtle warm tint based on example */
+    --header-bg: #ffffff;
+    --border-color: #e5e5e5;
+    --icon-size: 24px;
+    --header-height: 70px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.5;
 }
 
-header {
-  background-color: var(--header-bg-color);
-  padding: var(--spacing-unit);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* Header Container */
+.app-header {
+    position: sticky;
+    top: 0;
+    height: var(--header-height);
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 100;
 }
 
-.hamburger-menu {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  padding: 0;
+/* Sections of the Header */
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
-.hamburger-menu span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: var(--text-color);
-  border-radius: 2px;
-}
-
-
-.header-center {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 65px;
-  width: auto;
-}
-
-.home-button {
-  display: block;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.home-button:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
+.header-left {
+    flex: 1;
+    /* Pushes center to the middle */
 }
 
 .header-right {
-  display: flex;
-  gap: var(--spacing-unit);
+    flex: 1;
+    justify-content: flex-end;
+    /* Align right icons to edge */
+    gap: 12px;
 }
 
-.nav-item {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  font-size: 0.95rem;
+.header-center {
+    justify-content: center;
+    gap: 12px;
 }
 
-.nav-item:hover {
-  color: var(--accent-color);
+/* The Brand / Center Info */
+.brand-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.5px;
 }
 
-main {
-  flex: 1;
-  padding: var(--spacing-unit);
-  max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
+.home-link {
+    display: flex;
+    align-items: center;
 }
 
-h1 {
-  margin-bottom: var(--spacing-unit);
-  font-weight: 600;
+.logo {
+    height: 48px;
+    /* Prominent but fits in header */
+    width: auto;
 }
 
-p {
-  margin-bottom: var(--spacing-unit);
+/* Right Side Icons */
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
 }
 
-/* The hidden sidebar */
-.nav-menu {
-  position: fixed;
-  left: -280px;
-  /* Hidden off-screen */
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #ffffff;
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
-  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Professional easing */
-  z-index: 1000;
-  padding: 80px 20px 20px 20px;
-  /* Padding for top logo clearance */
+.icon-btn svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
 }
 
-/* The active state that JS will trigger */
-.nav-menu.active {
-  left: 0;
+/* Hamburger Menu Button */
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
 }
 
-/* Simple styling for links inside the menu */
-.nav-menu ul {
-  list-style: none;
-  padding: 0;
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
-.nav-menu li {
-  margin: 20px 0;
+/* Hamburger Animation classes */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: 500;
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* The Slide-Out Menu */
+.side-menu {
+    position: fixed;
+    top: var(--header-height);
+    /* Starts immediately BELOW the header */
+    left: -100%;
+    /* Hidden off-screen left by default */
+    width: 300px;
+    max-width: 80vw;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--header-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 90;
+    /* Behing sticky header z-index 100 */
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 24px 0;
+}
+
+.side-menu.active {
+    left: 0;
+    /* Slides in */
+}
+
+/* Side Menu Links */
+.side-menu ul {
+    list-style: none;
+}
+
+.side-menu li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.side-menu a {
+    display: block;
+    padding: 16px 24px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.side-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Main Content Area */
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px;
 }
