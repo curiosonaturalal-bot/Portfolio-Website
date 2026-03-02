@@ -67,6 +67,16 @@ header {
   width: auto;
 }
 
+.home-button {
+  display: block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
 .header-right {
   display: flex;
   gap: var(--spacing-unit);
@@ -98,4 +108,43 @@ h1 {
 
 p {
   margin-bottom: var(--spacing-unit);
+}
+
+/* The hidden sidebar */
+.nav-menu {
+  position: fixed;
+  left: -280px;
+  /* Hidden off-screen */
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Professional easing */
+  z-index: 1000;
+  padding: 80px 20px 20px 20px;
+  /* Padding for top logo clearance */
+}
+
+/* The active state that JS will trigger */
+.nav-menu.active {
+  left: 0;
+}
+
+/* Simple styling for links inside the menu */
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin: 20px 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
 }

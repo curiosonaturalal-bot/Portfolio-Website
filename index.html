@@ -18,8 +18,8 @@
             </button>
         </div>
         <div class="header-center">
-            <a href="index.html">
-                <img src="transparent_logo.png" alt="Logo" class="logo">
+            <a href="index.html" class="home-button" aria-label="Home" title="Home">
+                <img src="transparent_logo.png" alt="Home Logo" class="logo">
             </a>
         </div>
         <nav class="header-right">
@@ -28,11 +28,41 @@
             <a href="#" class="nav-item">Contact</a>
         </nav>
     </header>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
     <main>
-        <h1>Welcome</h1>
-        <p>This is a mobile-optimized website with a clean, light design.</p>
-        <p>Content goes here...</p>
+        <h1>I'm Andy</h1>
+        <p>With a strong foundation in visual storytelling as a professional Graphic Designer, I bring a unique
+            aesthetic perspective to the world of web development. After years of mastering Photoshop and Lightroom to
+            build high-impact creative projects, I am now translating those design principles into clean, functional
+            code.
+            Currently, I am focused on building modern, responsive web experiences using HTML, CSS, and JavaScript. I am
+            passionate about integrating AI tools to streamline development and exploring the intersection of design,
+            code, and creativity. Always learning, currently expanding my portfolio via GitHub and Firebase.</p>
     </main>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger-menu");
+        const navMenu = document.querySelector(".nav-menu");
+
+        // This "listens" for your click to toggle the menu open or closed
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        // Optional: Close menu when a link is clicked
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            });
+        });
+    </script>
 </body>
 
 </html>
