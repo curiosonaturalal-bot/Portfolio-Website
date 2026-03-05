@@ -57,13 +57,17 @@ body {
 }
 
 .header-center {
-    justify-content: center;
+    position: absolute;
+    left: 26%;
+    top: 8%;
 }
 
 /* The Brand / Center Info */
 .brand-name {
+    font-family: 'Chango', sans-serif;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
+    /* Chango looks best at default font-weight */
     margin: 0;
     letter-spacing: -0.5px;
 }
@@ -177,9 +181,13 @@ body {
 }
 
 /* Main Content Area */
+h2 {
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
 .page-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 32px 32px;
-    font-weight: 500;
+    padding: 32px 24px;
 }
