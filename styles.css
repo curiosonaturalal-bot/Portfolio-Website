@@ -58,7 +58,7 @@ body {
 
 .header-center {
     position: absolute;
-    left: 26%;
+    left: 23%;
     top: 8%;
 }
 
@@ -70,6 +70,7 @@ body {
     /* Chango looks best at default font-weight */
     margin: 0;
     letter-spacing: -0.5px;
+    color: #2e2e2e;
 }
 
 .home-link {
