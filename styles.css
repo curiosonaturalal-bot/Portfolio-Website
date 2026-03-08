@@ -1,4 +1,3 @@
-/* Reset & Basics */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,7 +7,6 @@
 :root {
     --text-color: #1a1a1a;
     --bg-color: #fcf9f5;
-    /* very subtle warm tint based on example */
     --header-bg: #ffffff;
     --border-color: #e5e5e5;
     --icon-size: 24px;
@@ -22,7 +20,6 @@ body {
     line-height: 1.5;
 }
 
-/* Header Container */
 .app-header {
     position: sticky;
     top: 0;
@@ -36,7 +33,6 @@ body {
     z-index: 100;
 }
 
-/* Sections of the Header */
 .header-left,
 .header-center,
 .header-right {
@@ -46,13 +42,11 @@ body {
 
 .header-left {
     flex: 1;
-    /* Pushes center to the middle */
 }
 
 .header-right {
     flex: 1;
     justify-content: flex-end;
-    /* Align right icons to edge */
     gap: 12px;
 }
 
@@ -62,12 +56,10 @@ body {
     top: 8%;
 }
 
-/* The Brand / Center Info */
 .brand-name {
     font-family: 'Chango', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    /* Chango looks best at default font-weight */
     margin: 0;
     letter-spacing: -0.5px;
     color: #2e2e2e;
@@ -80,11 +72,9 @@ body {
 
 .logo {
     height: 65px;
-    /* Prominent but fits in header */
     width: auto;
 }
 
-/* Right Side Icons */
 .icon-btn {
     background: none;
     border: none;
@@ -101,7 +91,6 @@ body {
     height: var(--icon-size);
 }
 
-/* Hamburger Menu Button */
 .hamburger-menu {
     background: none;
     border: none;
@@ -123,7 +112,6 @@ body {
     border-radius: 2px;
 }
 
-/* Hamburger Animation classes */
 .hamburger-menu.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -136,30 +124,24 @@ body {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* The Slide-Out Menu */
 .side-menu {
     position: fixed;
     top: var(--header-height);
-    /* Starts immediately BELOW the header */
     left: -100%;
-    /* Hidden off-screen left by default */
     width: 300px;
     max-width: 80vw;
     height: calc(100vh - var(--header-height));
     background-color: var(--header-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
     z-index: 90;
-    /* Behing sticky header z-index 100 */
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 24px 0;
 }
 
 .side-menu.active {
     left: 0;
-    /* Slides in */
 }
 
-/* Side Menu Links */
 .side-menu ul {
     list-style: none;
 }
@@ -181,14 +163,61 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Main Content Area */
 h2 {
     letter-spacing: 0.5px;
     margin-bottom: 10px;
 }
 
-.page-content {
+.gallery-section {
+    background-color: var(--header-bg);
+    padding-bottom: 24px;
+    /* Gives some breathing room at the bottom of the section */
+    width: 100%;
+}
+
+.gallery-title {
+    margin-bottom: 0;
+}
+
+.page-content,
+.section-title {
     max-width: 800px;
     margin: 0 auto;
     padding: 32px 24px;
+}
+
+.section-title {
+    padding-bottom: 0;
+}
+
+.masonry-grid {
+    column-gap: 16px;
+    column-count: 2;
+    padding: 16px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid {
+        column-count: 4;
+    }
 }

@@ -17,21 +17,16 @@
     <header class="app-header">
         <div class="header-left">
             <button class="hamburger-menu" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
-
         <div class="header-center">
             <a class="home-link" href="index.html" aria-label="Home" title="Home">
                 <img src="transparent_logo.png" alt="Andy's Logo" class="logo">
             </a>
             <h1 class="brand-name">Andy</h1>
         </div>
-
         <div class="header-right">
-            <!-- Example Right-Hand Icons (Search, Bag, User) -->
             <button class="icon-btn search-btn" aria-label="Search">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -71,25 +66,37 @@
         <p>With a strong foundation in visual storytelling as a professional Graphic Designer, I bring a unique
             aesthetic perspective to the world of web development. After years of mastering Photoshop and Lightroom to
             build high-impact creative projects, I am now translating those design principles into clean, functional
-            code.
-            ​ Currently, I am focused on building modern, responsive web experiences using HTML, CSS, and JavaScript. I
-            am passionate about integrating AI tools to streamline development and exploring the intersection of design,
-            code, and creativity. Always learning, currently expanding my portfolio via GitHub and Firebase.</p>
+            code. Currently, I am focused on building modern, responsive web experiences using HTML, CSS, and
+            JavaScript. I am passionate about integrating AI tools to streamline development and exploring the
+            intersection of design, code, and creativity. Always learning, currently expanding my portfolio via GitHub
+            and Firebase.</p>
     </main>
+
+    <section class="gallery-section">
+        <div class="section-title">
+            <h2 class="gallery-title">PhotoShop Composites</h2>
+        </div>
+
+        <div class="masonry-grid">
+            <div class="masonry-item"><img src="Cat & Butterfly.jpg" alt="Photoshop Composite"></div>
+            <div class="masonry-item"><img src="Strange Object.jpg" alt="Photoshop Composite"></div>
+            <div class="masonry-item"><img src="Tiger out of TV.jpg" alt="Photoshop Composite"></div>
+            <div class="masonry-item"><img src="Flat Earth.jpg" alt="Photoshop Composite"></div>
+            <div class="masonry-item"><img src="Lighting in jar.jpg" alt="Photoshop Composite"></div>
+        </div>
+    </section>
 
     <script>
         const hamburgerBtn = document.querySelector('.hamburger-menu');
         const sideMenu = document.querySelector('.side-menu');
 
-        // Toggle the side menu and hamburger animation
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('active');
             sideMenu.classList.toggle('active');
         });
 
-        // Close menu if user clicks outside of it
-        document.addEventListener('click', (event) => {
-            if (!sideMenu.contains(event.target) && !hamburgerBtn.contains(event.target) && sideMenu.classList.contains('active')) {
+        document.addEventListener('click', (e) => {
+            if (!sideMenu.contains(e.target) && !hamburgerBtn.contains(e.target) && sideMenu.classList.contains('active')) {
                 hamburgerBtn.classList.remove('active');
                 sideMenu.classList.remove('active');
             }
