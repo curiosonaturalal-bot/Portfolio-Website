@@ -86,6 +86,12 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close fullscreen">&times;</button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Fullscreen Image">
+    </div>
+
     <script>
         const hamburgerBtn = document.querySelector('.hamburger-menu');
         const sideMenu = document.querySelector('.side-menu');
@@ -99,6 +105,38 @@
             if (!sideMenu.contains(e.target) && !hamburgerBtn.contains(e.target) && sideMenu.classList.contains('active')) {
                 hamburgerBtn.classList.remove('active');
                 sideMenu.classList.remove('active');
+            }
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const galleryImages = document.querySelectorAll('.masonry-item img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                // Trigger reflow for transition
+                lightbox.offsetWidth;
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Fullscreen Image';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+            }, 300); // Matches CSS transition duration
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
             }
         });
     </script>
