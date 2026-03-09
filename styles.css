@@ -175,6 +175,11 @@ h2 {
     width: 100%;
 }
 
+.ai-section {
+    background-color: var(--bg-color);
+    /* Matches the 'Bio' section background */
+}
+
 .gallery-title {
     margin-bottom: 0;
 }
@@ -283,4 +288,50 @@ h2 {
     color: #bbb;
     text-decoration: none;
     outline: none;
+}
+
+/* --- Video Gallery Styles --- */
+.video-section {
+    /* Uses the alternating background color from the previous section */
+    background-color: var(--header-bg);
+}
+
+.video-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 16px;
+}
+
+.video-item {
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-video {
+    width: 100%;
+    /* Forces a 16:9 aspect ratio standard for horizontal videos */
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    display: block;
+    /* Removes bottom pixel gap natively present on inline elements */
+}
+
+.video-info {
+    padding: 20px 24px;
+}
+
+.video-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    letter-spacing: 0.3px;
+}
+
+.video-info p {
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
 }
