@@ -24,7 +24,9 @@
             <a class="home-link" href="index.html" aria-label="Home" title="Home">
                 <img src="transparent_logo.png" alt="Andy's Logo" class="logo">
             </a>
-            <h1 class="brand-name">Andy</h1>
+            <a href="index.html" style="text-decoration: none;">
+                <h1 class="brand-name">Andy</h1>
+            </a>
         </div>
         <div class="header-right">
             <button class="icon-btn search-btn" aria-label="Search">
@@ -54,9 +56,9 @@
 
     <nav class="side-menu">
         <ul>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About Andy</a></li>
-            <li><a href="#">Health Tips</a></li>
+            <li><a href="#gallery-section">Photoshop Composites</a></li>
+            <li><a href="#ai-section">AI Still Image Exploration</a></li>
+            <li><a href="#video-section">AI Video Exploration</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
@@ -72,9 +74,9 @@
             and Firebase.</p>
     </main>
 
-    <section class="gallery-section">
+    <section id="gallery-section" class="gallery-section">
         <div class="section-title">
-            <h2 class="gallery-title">PhotoShop Composites</h2>
+            <h2 class="gallery-title">Photoshop Composites</h2>
         </div>
 
         <div class="masonry-grid">
@@ -92,9 +94,9 @@
         <img id="lightbox-img" class="lightbox-content" src="" alt="Fullscreen Image">
     </div>
 
-    <section class="gallery-section ai-section">
+    <section id="ai-section" class="gallery-section ai-section">
         <div class="section-title">
-            <h2 class="gallery-title">AI Exploration</h2>
+            <h2 class="gallery-title">AI Still Image Exploration</h2>
         </div>
 
         <div class="masonry-grid">
@@ -106,9 +108,9 @@
         </div>
     </section>
 
-    <section class="gallery-section video-section">
+    <section id="video-section" class="gallery-section video-section">
         <div class="section-title">
-            <h2 class="gallery-title">Video Explorations</h2>
+            <h2 class="gallery-title">AI Video Exploration</h2>
         </div>
 
         <div class="video-grid page-content">
@@ -145,6 +147,14 @@
                 hamburgerBtn.classList.remove('active');
                 sideMenu.classList.remove('active');
             }
+        });
+
+        const sideMenuLinks = document.querySelectorAll('.side-menu a');
+        sideMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                sideMenu.classList.remove('active');
+            });
         });
 
         // Lightbox functionality
