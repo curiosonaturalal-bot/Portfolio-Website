@@ -335,3 +335,30 @@ h2 {
     color: #555;
     font-size: 1rem;
 }
+
+/* Footer Styles */
+.app-footer {
+    background-color: var(--bg-color);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    padding: 8px;
+}
+
+.social-link:hover {
+    color: #888;
+}
+
+.instagram-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
