@@ -82,13 +82,12 @@ body {
 }
 
 .logo {
-    height: 65px;
-    width: auto;
-    transition: filter 0.3s ease;
-}
-
-body.dark-mode .logo {
-    filter: invert(1) brightness(2);
+    height: 57px;
+    width: 57px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 0;
 }
 
 .icon-btn {
