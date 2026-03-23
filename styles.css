@@ -53,6 +53,7 @@ body {
 
 .header-left {
     flex: 1;
+    gap: 16px;
 }
 
 .header-right {
@@ -62,10 +63,76 @@ body {
 }
 
 .header-center {
+    display: none; /* Hidden on mobile by default */
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2vw;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.desktop-nav a:hover {
+    color: var(--text-muted);
+}
+
+.desktop-nav li.has-submenu {
+    position: relative;
+}
+
+.desktop-nav li.has-submenu > a::after {
+    content: " ▼";
+    font-size: 9px;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.desktop-nav .submenu {
     position: absolute;
-    left: 23%;
-    top: 8%;
-    gap: 12px;
+    top: 100%;
+    left: 0;
+    list-style: none; /* remove bullet points */
+    background-color: var(--header-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    padding: 8px 0;
+    min-width: 140px;
+    gap: 0;
+}
+
+.desktop-nav li.has-submenu:hover .submenu {
+    display: flex;
+}
+
+.desktop-nav .submenu a {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.desktop-nav .submenu a:hover {
+    background-color: var(--hover-bg);
+}
+
+.desktop-nav .submenu svg {
+    width: 18px;
+    height: 18px;
 }
 
 .brand-name {
@@ -189,6 +256,41 @@ body.dark-mode .dark-mode-btn .sun-icon {
 
 .side-menu a:hover {
     background-color: var(--hover-bg);
+}
+
+.side-menu .submenu {
+    list-style: none;
+    padding-left: 24px;
+    margin-top: 4px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 8px;
+    margin-bottom: 8px;
+}
+
+.side-menu .submenu a {
+    padding: 12px 24px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.side-menu .submenu svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (min-width: 768px) {
+    .header-center {
+        display: flex;
+        justify-content: center;
+        flex: auto; /* Take up center space evenly */
+        margin: 0 16px;
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger menu on desktop */
+    }
 }
 
 h2 {

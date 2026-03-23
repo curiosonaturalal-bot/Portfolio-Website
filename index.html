@@ -19,8 +19,6 @@
             <button class="hamburger-menu" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
-        </div>
-        <div class="header-center">
             <a class="home-link" href="index.html" aria-label="Home" title="Home">
                 <img src="Andy_Transparent_Logo.png" alt="Andy's Logo" class="logo">
             </a>
@@ -28,6 +26,28 @@
                 <h1 class="brand-name">Andy</h1>
             </a>
         </div>
+        <nav class="header-center desktop-nav">
+            <ul>
+                <li><a href="#gallery-section">Composites</a></li>
+                <li><a href="#ai-section">AI Images</a></li>
+                <li><a href="#video-section">AI Videos</a></li>
+                <li class="has-submenu">
+                    <a href="#app-footer">Contact</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="https://www.instagram.com/mydigitalartexhibit?igsh=MXM5ZnZ0eWl6dnV3Yw==" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                                Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
         <div class="header-right">
             <button class="icon-btn dark-mode-btn" aria-label="Toggle theme">
                 <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -67,10 +87,24 @@
 
     <nav class="side-menu">
         <ul>
-            <li><a href="#gallery-section">Photoshop Composites</a></li>
-            <li><a href="#ai-section">AI Still Image Exploration</a></li>
-            <li><a href="#video-section">AI Video Exploration</a></li>
-            <li><a href="#app-footer">Contact</a></li>
+            <li><a href="#gallery-section">Composites</a></li>
+            <li><a href="#ai-section">AI Images</a></li>
+            <li><a href="#video-section">AI Videos</a></li>
+            <li class="has-submenu">
+                <a href="#app-footer">Contact</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="https://www.instagram.com/mydigitalartexhibit?igsh=MXM5ZnZ0eWl6dnV3Yw==" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
@@ -145,9 +179,7 @@
     </section>
 
     <footer id="app-footer" class="app-footer">
-        <a href="https://www.instagram.com/mydigitalartexhibit?igsh=MXM5ZnZ0eWl6dnV3Yw==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-            <img src="Instagram_logo_PNG8.png" alt="Instagram Logo" class="instagram-icon">
-        </a>
+        <!-- Empty footer, anchor referenced by Contact link -->
     </footer>
 
     <script>
