@@ -135,6 +135,23 @@ body {
     height: 18px;
 }
 
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+    .brand-container {
+        position: static;
+        transform: none;
+    }
+}
+
 .brand-name {
     font-family: 'Chango', sans-serif;
     font-size: 20px;
