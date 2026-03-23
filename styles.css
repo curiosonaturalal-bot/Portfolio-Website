@@ -65,6 +65,7 @@ body {
     position: absolute;
     left: 23%;
     top: 8%;
+    gap: 12px;
 }
 
 .brand-name {
@@ -104,6 +105,18 @@ body {
 .icon-btn svg {
     width: var(--icon-size);
     height: var(--icon-size);
+}
+
+.dark-mode-btn .sun-icon {
+    display: none;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon {
+    display: none;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon {
+    display: block;
 }
 
 .hamburger-menu {
@@ -197,6 +210,7 @@ h2 {
 
 .gallery-title {
     margin-bottom: 0;
+    text-align: center;
 }
 
 .page-content,
