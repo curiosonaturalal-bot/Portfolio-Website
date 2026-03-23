@@ -63,7 +63,8 @@ body {
 }
 
 .header-center {
-    display: none; /* Hidden on mobile by default */
+    display: none;
+    /* Hidden on mobile by default */
 }
 
 .desktop-nav ul {
@@ -91,7 +92,7 @@ body {
     position: relative;
 }
 
-.desktop-nav li.has-submenu > a::after {
+.desktop-nav li.has-submenu>a::after {
     content: " ▼";
     font-size: 9px;
     vertical-align: middle;
@@ -102,11 +103,12 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    list-style: none; /* remove bullet points */
+    list-style: none;
+    /* remove bullet points */
     background-color: var(--header-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
     padding: 8px 0;
@@ -140,9 +142,7 @@ body {
     align-items: center;
     gap: 16px;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 25%;
 }
 
 @media (min-width: 768px) {
@@ -301,12 +301,14 @@ body.dark-mode .dark-mode-btn .sun-icon {
     .header-center {
         display: flex;
         justify-content: center;
-        flex: auto; /* Take up center space evenly */
+        flex: auto;
+        /* Take up center space evenly */
         margin: 0 16px;
     }
 
     .hamburger-menu {
-        display: none; /* Hide hamburger menu on desktop */
+        display: none;
+        /* Hide hamburger menu on desktop */
     }
 }
 
