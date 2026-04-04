@@ -33,9 +33,14 @@
                 <li><a href="#gallery-section">Composites</a></li>
                 <li><a href="#ai-section">AI Images</a></li>
                 <li><a href="#video-section">AI Videos</a></li>
-                <li class="has-submenu">
-                    <a href="#app-footer">Contact</a>
-                    <ul class="submenu">
+                <li class="has-submenu desktop-submenu-item">
+                    <a href="javascript:void(0)" class="desktop-contact-toggle" id="desktop-contact-btn">
+                        <span>Contact</span>
+                        <svg class="desktop-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <ul class="submenu desktop-submenu" id="desktop-contact-submenu">
                         <li>
                             <a href="https://www.instagram.com/mydigitalartexhibit?igsh=MXM5ZnZ0eWl6dnV3Yw==" target="_blank" rel="noopener noreferrer">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,7 +48,6 @@
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                 </svg>
-                                Instagram
                             </a>
                         </li>
                     </ul>
@@ -92,9 +96,14 @@
             <li><a href="#gallery-section">Composites</a></li>
             <li><a href="#ai-section">AI Images</a></li>
             <li><a href="#video-section">AI Videos</a></li>
-            <li class="has-submenu">
-                <a href="#app-footer">Contact</a>
-                <ul class="submenu">
+            <li class="has-submenu side-submenu-item">
+                <a href="javascript:void(0)" class="side-contact-toggle" id="side-contact-btn">
+                    <span>Contact</span>
+                    <svg class="side-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <ul class="submenu side-submenu" id="side-contact-submenu">
                     <li>
                         <a href="https://www.instagram.com/mydigitalartexhibit?igsh=MXM5ZnZ0eWl6dnV3Yw==" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -102,7 +111,6 @@
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
-                            Instagram
                         </a>
                     </li>
                 </ul>
@@ -200,12 +208,40 @@
             }
         });
 
-        const sideMenuLinks = document.querySelectorAll('.side-menu a');
+        const sideMenuLinks = document.querySelectorAll('.side-menu a:not(.side-contact-toggle)');
         sideMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerBtn.classList.remove('active');
                 sideMenu.classList.remove('active');
             });
+        });
+
+        // Side menu Contact accordion toggle
+        const sideContactBtn = document.getElementById('side-contact-btn');
+        const sideContactItem = sideContactBtn ? sideContactBtn.closest('.side-submenu-item') : null;
+        if (sideContactBtn && sideContactItem) {
+            sideContactBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sideContactItem.classList.toggle('open');
+            });
+        }
+
+        // Desktop menu Contact accordion toggle
+        const desktopContactBtn = document.getElementById('desktop-contact-btn');
+        const desktopContactItem = desktopContactBtn ? desktopContactBtn.closest('.desktop-submenu-item') : null;
+        if (desktopContactBtn && desktopContactItem) {
+            desktopContactBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                desktopContactItem.classList.toggle('open');
+            });
+        }
+
+        // Close desktop submenu if clicking outside
+        document.addEventListener('click', (e) => {
+            if (desktopContactItem && desktopContactItem.classList.contains('open') && !desktopContactItem.contains(e.target)) {
+                desktopContactItem.classList.remove('open');
+            }
         });
 
         // Lightbox functionality
